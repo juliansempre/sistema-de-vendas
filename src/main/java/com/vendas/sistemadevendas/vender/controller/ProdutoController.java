@@ -164,6 +164,7 @@ public class ProdutoController implements Initializable {
         produtoModel.inserirProduto(produto, descricao, preco, estoque, clienteModel);
         System.out.println(produto + descricao + preco + estoque + clienteModel);
         listarTarefasFromDatabase();
+        limparformulario();
     }
 
     public void btnAtualizarProduto(ActionEvent actionEvent) throws SQLException {
@@ -179,5 +180,17 @@ public class ProdutoController implements Initializable {
         ProdutoModel produtoModel = new ProdutoModel(mainContainer);
         produtoModel.atualizarProduto(codigo, produto, descricao, preco, estoque);
         listarTarefasFromDatabase();
+        limparformulario();
+    }
+
+    public void btnLimparProduto(ActionEvent actionEvent) {
+        limparformulario();
+    }
+    public void limparformulario(){
+        txtIdCodigo.setText("");
+        txtProduto.setText("");
+        txtDescricao.setText("");
+        txtPreco.setText("");
+        txtEstoque.setText("");
     }
 }

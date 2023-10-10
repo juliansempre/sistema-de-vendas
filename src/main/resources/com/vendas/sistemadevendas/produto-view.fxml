@@ -116,6 +116,11 @@
                            <Insets left="5.0" />
                         </HBox.margin>
                      </TextField>
+                     <Button mnemonicParsing="false" onAction="#btnLimparProduto" text="Limpar">
+                        <HBox.margin>
+                           <Insets left="10.0" />
+                        </HBox.margin>
+                     </Button>
                   </children>
                </HBox>
             </children>
