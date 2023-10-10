@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.vendas.sistemadevendas.adm.autentificacao.login.controller.LoginController">
+   <MenuBar>
+     <menus>
+       <Menu mnemonicParsing="false" text="Arquivo">
+         <items>
+           <MenuItem mnemonicParsing="false" text="Close" />
+         </items>
+       </Menu>
+       <Menu mnemonicParsing="false" text="Configuração">
+         <items>
+           <MenuItem mnemonicParsing="false" text="Delete" />
+         </items>
+       </Menu>
+       <Menu mnemonicParsing="false" text="Sobre">
+         <items>
+           <MenuItem mnemonicParsing="false" text="About" />
+         </items>
+       </Menu>
+     </menus>
+   </MenuBar>
+
+    <BorderPane fx:id="mainContainer">
+        <center>
+            <!-- Conteúdo da Tela 1 -->
+            <Label fx:id="textoTela" />
+        </center>
+    </BorderPane>
+   <GridPane prefHeight="355.0" prefWidth="600.0">
+     <columnConstraints>
+       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+     </columnConstraints>
+     <rowConstraints>
+       <RowConstraints maxHeight="114.0" minHeight="10.0" prefHeight="52.0" vgrow="SOMETIMES" />
+       <RowConstraints maxHeight="212.0" minHeight="10.0" prefHeight="149.0" vgrow="SOMETIMES" />
+       <RowConstraints maxHeight="180.0" minHeight="10.0" prefHeight="52.0" vgrow="SOMETIMES" />
+         <RowConstraints maxHeight="101.0" minHeight="10.0" prefHeight="101.0" vgrow="SOMETIMES" />
+     </rowConstraints>
+      <children>
+         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+            <children>
+               <Button mnemonicParsing="false" onAction="#btnEntrarLogin" prefHeight="25.0" prefWidth="100.0" text="Entrar">
+                  <cursor>
+                     <Cursor fx:constant="HAND" />
+                  </cursor></Button>
+               <Button mnemonicParsing="false" onAction="#btnLimpar" prefHeight="25.0" prefWidth="100.0" text="Limpar">
+                  <HBox.margin>
+                     <Insets left="33.0" />
+                  </HBox.margin>
+                  <cursor>
+                     <Cursor fx:constant="HAND" />
+                  </cursor>
+               </Button>
+            </children>
+         </HBox>
+         <GridPane GridPane.rowIndex="1">
+           <columnConstraints>
+               <ColumnConstraints hgrow="SOMETIMES" maxWidth="193.0" minWidth="10.0" prefWidth="109.0" />
+             <ColumnConstraints hgrow="SOMETIMES" maxWidth="301.0" minWidth="10.0" prefWidth="291.0" />
+             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+           </columnConstraints>
+           <rowConstraints>
+             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+           </rowConstraints>
+            <children>
+               <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+                  <children>
+                     <Label text="Login" />
+                     <TextField fx:id="txtLogin" prefHeight="41.0" prefWidth="301.0" />
+                     <Label text="Senha" />
+                     <PasswordField fx:id="txtSenha" prefHeight="41.0" prefWidth="301.0" />
+                     <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="299.0" text="Esqueci minha senha" textFill="#110fa1">
+                        <cursor>
+                           <Cursor fx:constant="HAND" />
+                        </cursor>
+                     </Label>
+                  </children>
+               </VBox>
+            </children>
+         </GridPane>
+         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <children>
+               <ImageView fitHeight="55.0" fitWidth="111.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../../../img/funcionario.png" />
+                  </image>
+               </ImageView>
+            </children>
+         </HBox>
+         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
+            <children>
+               <Label alignment="CENTER" contentDisplay="RIGHT" onMouseClicked="#btnCadastrar" prefHeight="17.0" prefWidth="102.0" style="-fx-border-color: rgb(210,210,210);" text="Cadastrar">
+                  <cursor>
+                     <Cursor fx:constant="HAND" />
+                  </cursor>
+               </Label>
+            </children>
+         </HBox>
+      </children>
+   </GridPane>
+</VBox>

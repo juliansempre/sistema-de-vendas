@@ -1,0 +1,1 @@
+insert into cliente (idCliente, nome, endereco, email, fone) values (1, "clientepadrao", "endpadrao", "email@email.com", "(00) 00000-0000");

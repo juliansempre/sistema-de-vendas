@@ -1,0 +1,36 @@
+Entidades:
+
+Cliente:
+
+IDCliente (Chave Primária)
+Nome
+Endereço
+Email
+Telefone
+Produto:
+
+IDProduto (Chave Primária)
+Nome
+Descrição
+Preço
+Estoque
+Pedido:
+
+IDPedido (Chave Primária)
+DataPedido
+IDCliente (Chave Estrangeira referenciando Cliente)
+TotalPedido
+ItemPedido:
+
+IDItemPedido (Chave Primária)
+IDPedido (Chave Estrangeira referenciando Pedido)
+IDProduto (Chave Estrangeira referenciando Produto)
+Quantidade
+PreçoUnitário
+Subtotal
+Relacionamentos:
+
+Um Cliente pode fazer Muitos Pedidos (relacionamento 1:N entre Cliente e Pedido).
+Um Pedido contém Muitos Itens de Pedido (relacionamento 1:N entre Pedido e ItemPedido).
+Um Produto pode estar em Muitos Itens de Pedido (relacionamento 1:N entre Produto e ItemPedido).
+Este é um modelo básico e pode ser expandido de acordo com os requisitos específicos do seu sistema de vendas. Além disso, é importante considerar índices para otimizar a consulta de dados, integridade referencial para manter a consistência dos dados e outras considerações de desempenho e segurança ao projetar um banco de dados real para um sistema de vendas.

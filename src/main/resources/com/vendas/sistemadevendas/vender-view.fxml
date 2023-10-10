@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.vendas.sistemadevendas.vender.controller.VenderController">
+
+    <BorderPane fx:id="mainContainer">
+        <center>
+            <!-- Conteúdo da Tela 1 -->
+            <Label fx:id="textoTela" />
+            <Button onAction="#voltarParaPrincipal" text="Voltar para Tela Principal" />
+        </center>
+    </BorderPane>
+    <Label layoutX="272.0" layoutY="17.0" text="Tela 1" />
+   <TableView fx:id="tvProducaoAroeira" layoutX="14.0" layoutY="57.0" prefHeight="299.0" prefWidth="559.0">
+     <columns>
+       <TableColumn fx:id="idColumn" prefWidth="75.0" text="id" />
+       <TableColumn fx:id="tarefaColumn" prefWidth="397.0" text="Tarefa" />
+     </columns>
+   </TableView>
+</AnchorPane>

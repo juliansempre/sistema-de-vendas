@@ -1,0 +1,7 @@
+.background-vbox {
+   -fx-background-color: linear-gradient(to bottom right, #00BFFF, #ADD8E6);
+    -fx-background-size: cover;
+}
+.gridpanebloco2{
+-fx-background-color: #FFFAFA;
+}

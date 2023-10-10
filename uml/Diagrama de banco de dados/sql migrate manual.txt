@@ -1,0 +1,75 @@
+CREATE SCHEMA IF NOT EXISTS `vendas` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+USE `vendas`;
+
+-- -----------------------------------------------------
+-- Table `vendas`.`Cliente`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Cliente` (
+  `idCliente` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(45) NULL,
+  `endereco` VARCHAR(45) NULL,
+  `email` VARCHAR(255) NULL,
+  `fone` VARCHAR(45) NULL,
+  PRIMARY KEY (`idCliente`)
+) ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `vendas`.`Produto`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Produto` (
+  `idproduto` INT NOT NULL AUTO_INCREMENT,
+  `nomeproduto` VARCHAR(255) NULL,
+  `descricaoproduto` VARCHAR(255) NULL,
+  `precoproduto` DOUBLE NULL,
+  `estoque` INT NULL,
+  `Cliente_idCliente` INT NOT NULL,
+  PRIMARY KEY (`idproduto`),
+  INDEX `fk_produto_Cliente_idx` (`Cliente_idCliente` ASC),
+  CONSTRAINT `fk_produto_Cliente`
+    FOREIGN KEY (`Cliente_idCliente`)
+    REFERENCES `Cliente` (`idCliente`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+) ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `vendas`.`Pedido`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Pedido` (
+  `idPedido` INT NOT NULL AUTO_INCREMENT,
+  `DataPedido` DATE NULL,
+  `TotalPedido` DOUBLE NULL,
+  `Cliente_idCliente` INT NOT NULL,
+  PRIMARY KEY (`idPedido`),
+  INDEX `fk_Pedido_Cliente1_idx` (`Cliente_idCliente` ASC),
+  CONSTRAINT `fk_Pedido_Cliente1`
+    FOREIGN KEY (`Cliente_idCliente`)
+    REFERENCES `Cliente` (`idCliente`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+) ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `vendas`.`ItemPedido`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ItemPedido` (
+  `idItemPedido` INT NOT NULL AUTO_INCREMENT,
+  `QuantidadeItemPedido` INT NULL,
+  `PrecoUnitarioItemPedido` DOUBLE NULL,
+  `SubTotalItemPedido` DOUBLE NULL,
+  `Pedido_idPedido` INT NOT NULL,
+  `produto_idproduto` INT NOT NULL,
+  PRIMARY KEY (`idItemPedido`),
+  INDEX `fk_ItemPedido_Pedido1_idx` (`Pedido_idPedido` ASC),
+  INDEX `fk_ItemPedido_produto1_idx` (`produto_idproduto` ASC),
+  CONSTRAINT `fk_ItemPedido_Pedido1`
+    FOREIGN KEY (`Pedido_idPedido`)
+    REFERENCES `Pedido` (`idPedido`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_ItemPedido_produto1`
+    FOREIGN KEY (`produto_idproduto`)
+    REFERENCES `Produto` (`idproduto`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+) ENGINE = InnoDB;
